@@ -1,2 +1,3 @@
 # C_Console
-Console Class
+  
+Console Class (Windows Only)
