@@ -51,7 +51,7 @@ void __Console_WriteLine(const char* text)
 
 void __Console_ReadLine(char* buffer, size_t max)
 {
-	fgets(buffer, max, stdout);
+	fgets(buffer, max, stdin);
 }
 
 void __Console_SetTextColor(Color color)
@@ -71,7 +71,7 @@ void __Console_SetBackgroundColor(Color color)
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), Console.__color);
 }
 
-Color__Console_GetBackgroundColor()
+Color __Console_GetBackgroundColor()
 {
 	return (Console.__color & 0xff) >> 4;
 }
