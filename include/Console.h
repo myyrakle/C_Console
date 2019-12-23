@@ -4,50 +4,49 @@
 #include <stdio.h>
 #include <Windows.h>
 
-//ìƒ‰
+//»ö
 enum Color
 {
-	BLACK = 0,
-	DARK_BLUE = 1,
-	DARK_GREEN = 2,
-	DARK_CYAN = 3,
-	DARK_RED = 4,
-	DARK_MAGENTA = 5,
-	DARK_YELLOW = 6,
-	GRAY = 7,
-	DARK_GRAY = 8,
-	BLUE = 9,
-	GREEN = 10,
-	CYAN= 11,
-	RED = 12,
-	MAGENTA = 13,
-	YELLOW = 14,
-	WHITE = 15,
-	TextDefault = 7,
-	BackgroundDefault = 0
+	BLACK = 0, //°ËÀº»ö
+	DARK_BLUE = 1, //¾îµÎ¿î ÆÄ¶õ»ö 
+	DARK_GREEN = 2, //¾îµÎ¿î ÃÊ·Ï»ö
+	DARK_CYAN = 3, //¾îµÎ¿î Ã»·Ï»ö
+	DARK_RED = 4, //¾îµÎ¿î »¡°­
+	DARK_MAGENTA = 5, //¾îµÎ¿î ÀÚÈ«»ö
+	DARK_YELLOW = 6, //¾îµÎ¿î ³ë¶õ»ö
+	GRAY = 7, //È¸»ö
+	DARK_GRAY = 8, //¾îµÎ¿î È¸»ö
+	BLUE = 9, //ÆÄ¶õ»ö
+	GREEN = 10, //ÃÊ·Ï»ö
+	CYAN= 11, //Ã»·Ï»ö
+	RED = 12, //»¡°£»ö
+	MAGENTA = 13, //ÀÚÈ«»ö
+	YELLOW = 14, //³ë¶õ»ö
+	WHITE = 15, //ÇÏ¾á»ö
+	TextDefault = 7, //ÅØ½ºÆ® »ö µðÆúÆ®
+	BackgroundDefault = 0 //¹é±×¶ó¿îµå »ö µðÆúÆ®
 };
 typedef enum Color Color;
 
 struct __Console
 {
-	int __color;
-	
-	void(*Write)(const char*);
-	void(*WriteLine)(const char*);
-	void(*WriteFormat)(const char*, ...);
+	void(*Write)(const char*); //±×³É ¾¸	
+	void(*WriteLine)(const char*); //¾²°í °³Çà
+	void(*WriteFormat)(const char*, ...); //printfÀÓ
 
-	int(*Read)();
-	void(*ReadLine)(char*, size_t);
-	void(*ReadFormat)(const char*, ...);
+	int(*Read)(); //ÇÑ ±ÛÀÚ ÀÐ¾î¿È
+	void(*ReadLine)(char*, size_t); //ÇÑÁÙ ÀÐ¾î¿È
+	void(*ReadFormat)(const char*, ...); //scanfÀÓ
 
-	void(*SetTextColor)(Color);
-	Color(*GetTextColor)();
-	void(*SetBackgroundColor)(Color);
-	Color(*GetBackgroundColor)();
+	int __color; //¸â¹öº¯¼ö´Ï±î °ÇµéÁö ¸¶½Ã¿À
+	void(*SetTextColor)(Color); //ÅØ½ºÆ® »ö»ó ¼³Á¤
+	Color(*GetTextColor)(); //ÅØ½ºÆ® »ö»ó È¹µæ
+	void(*SetBackgroundColor)(Color); //¹é±×¶ó¿îµå »ö»ó ¼³Á¤
+	Color(*GetBackgroundColor)(); //¹é±×¶ó¿îµå »ö»ó È¹µæ
 
-	void(*Clear)();
-	void(*Pause)();
-	void(*Exit)();
+	void(*Clear)(); //ÄÜ¼Ö Ã»¼Ò
+	void(*Pause)(); //ÄÜ¼Ö ´ë°¡
+	void(*Exit)(); //ÄÜ¼Ö Á¾·á
 };
 
 extern struct __Console Console;
