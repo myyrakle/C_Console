@@ -4,6 +4,13 @@
 #include <stdio.h>
 #include <Windows.h>
 
+struct __Console;
+extern struct __Console Console;
+
+enum Color;
+typedef enum Color Color;
+
+
 //색
 enum Color
 {
@@ -18,7 +25,7 @@ enum Color
 	DARK_GRAY = 8, //어두운 회색
 	BLUE = 9, //파란색
 	GREEN = 10, //초록색
-	CYAN= 11, //청록색
+	CYAN = 11, //청록색
 	RED = 12, //빨간색
 	MAGENTA = 13, //자홍색
 	YELLOW = 14, //노란색
@@ -26,7 +33,7 @@ enum Color
 	TextDefault = 7, //텍스트 색 디폴트
 	BackgroundDefault = 0 //백그라운드 색 디폴트
 };
-typedef enum Color Color;
+
 
 struct __Console
 {
@@ -34,19 +41,23 @@ struct __Console
 	void(*WriteLine)(const char*); //쓰고 개행
 	void(*WriteFormat)(const char*, ...); //printf임
 
+	void(*FlushOut)(); //출력버퍼 비움
+
 	int(*Read)(); //한 글자 읽어옴
 	void(*ReadLine)(char*, size_t); //한줄 읽어옴
 	void(*ReadFormat)(const char*, ...); //scanf임
 
-	int __color; //멤버변수니까 건들지 마시오
+	void(*FlushIn)(); //입력버퍼 비움
+
+	const int __color; //멤버변수니까 건들지 마시오
 	void(*SetTextColor)(Color); //텍스트 색상 설정
 	Color(*GetTextColor)(); //텍스트 색상 획득
 	void(*SetBackgroundColor)(Color); //백그라운드 색상 설정
 	Color(*GetBackgroundColor)(); //백그라운드 색상 획득
+	void(*ResetColor)();
 
 	void(*Clear)(); //콘솔 청소
 	void(*Pause)(); //콘솔 대가
 	void(*Exit)(); //콘솔 종료
 };
 
-extern struct __Console Console;
