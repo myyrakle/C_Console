@@ -11,53 +11,53 @@ enum Color;
 typedef enum Color Color;
 
 
-//»ö
+//ìƒ‰
 enum Color
 {
-	BLACK = 0, //°ËÀº»ö
-	DARK_BLUE = 1, //¾îµÎ¿î ÆÄ¶õ»ö 
-	DARK_GREEN = 2, //¾îµÎ¿î ÃÊ·Ï»ö
-	DARK_CYAN = 3, //¾îµÎ¿î Ã»·Ï»ö
-	DARK_RED = 4, //¾îµÎ¿î »¡°­
-	DARK_MAGENTA = 5, //¾îµÎ¿î ÀÚÈ«»ö
-	DARK_YELLOW = 6, //¾îµÎ¿î ³ë¶õ»ö
-	GRAY = 7, //È¸»ö
-	DARK_GRAY = 8, //¾îµÎ¿î È¸»ö
-	BLUE = 9, //ÆÄ¶õ»ö
-	GREEN = 10, //ÃÊ·Ï»ö
-	CYAN = 11, //Ã»·Ï»ö
-	RED = 12, //»¡°£»ö
-	MAGENTA = 13, //ÀÚÈ«»ö
-	YELLOW = 14, //³ë¶õ»ö
-	WHITE = 15, //ÇÏ¾á»ö
-	TextDefault = 7, //ÅØ½ºÆ® »ö µğÆúÆ®
-	BackgroundDefault = 0 //¹é±×¶ó¿îµå »ö µğÆúÆ®
+	BLACK = 0, //ê²€ì€ìƒ‰
+	DARK_BLUE = 1, //ì–´ë‘ìš´ íŒŒë€ìƒ‰ 
+	DARK_GREEN = 2, //ì–´ë‘ìš´ ì´ˆë¡ìƒ‰
+	DARK_CYAN = 3, //ì–´ë‘ìš´ ì²­ë¡ìƒ‰
+	DARK_RED = 4, //ì–´ë‘ìš´ ë¹¨ê°•
+	DARK_MAGENTA = 5, //ì–´ë‘ìš´ ìí™ìƒ‰
+	DARK_YELLOW = 6, //ì–´ë‘ìš´ ë…¸ë€ìƒ‰
+	GRAY = 7, //íšŒìƒ‰
+	DARK_GRAY = 8, //ì–´ë‘ìš´ íšŒìƒ‰
+	BLUE = 9, //íŒŒë€ìƒ‰
+	GREEN = 10, //ì´ˆë¡ìƒ‰
+	CYAN = 11, //ì²­ë¡ìƒ‰
+	RED = 12, //ë¹¨ê°„ìƒ‰
+	MAGENTA = 13, //ìí™ìƒ‰
+	YELLOW = 14, //ë…¸ë€ìƒ‰
+	WHITE = 15, //í•˜ì–€ìƒ‰
+	TextDefault = 7, //í…ìŠ¤íŠ¸ ìƒ‰ ë””í´íŠ¸
+	BackgroundDefault = 0 //ë°±ê·¸ë¼ìš´ë“œ ìƒ‰ ë””í´íŠ¸
 };
 
 
 struct __Console
 {
-	void(*Write)(const char*); //±×³É ¾¸	
-	void(*WriteLine)(const char*); //¾²°í °³Çà
-	void(*WriteFormat)(const char*, ...); //printfÀÓ
+	void(*Write)(const char*); //ê·¸ëƒ¥ ì”€	
+	void(*WriteLine)(const char*); //ì“°ê³  ê°œí–‰
+	void(*WriteFormat)(const char*, ...); //printfì„
 
-	void(*FlushOut)(); //Ãâ·Â¹öÆÛ ºñ¿ò
+	void(*FlushOut)(); //ì¶œë ¥ë²„í¼ ë¹„ì›€
 
-	int(*Read)(); //ÇÑ ±ÛÀÚ ÀĞ¾î¿È
-	void(*ReadLine)(char*, size_t); //ÇÑÁÙ ÀĞ¾î¿È
-	void(*ReadFormat)(const char*, ...); //scanfÀÓ
+	int(*Read)(); //í•œ ê¸€ì ì½ì–´ì˜´
+	void(*ReadLine)(char*, size_t); //í•œì¤„ ì½ì–´ì˜´
+	void(*ReadFormat)(const char*, ...); //scanfì„
 
-	void(*FlushIn)(); //ÀÔ·Â¹öÆÛ ºñ¿ò
+	void(*FlushIn)(); //ì…ë ¥ë²„í¼ ë¹„ì›€
 
-	const int __color; //¸â¹öº¯¼ö´Ï±î °ÇµéÁö ¸¶½Ã¿À
-	void(*SetTextColor)(Color); //ÅØ½ºÆ® »ö»ó ¼³Á¤
-	Color(*GetTextColor)(); //ÅØ½ºÆ® »ö»ó È¹µæ
-	void(*SetBackgroundColor)(Color); //¹é±×¶ó¿îµå »ö»ó ¼³Á¤
-	Color(*GetBackgroundColor)(); //¹é±×¶ó¿îµå »ö»ó È¹µæ
+	const int __color; //ë©¤ë²„ë³€ìˆ˜ë‹ˆê¹Œ ê±´ë“¤ì§€ ë§ˆì‹œì˜¤
+	void(*SetTextColor)(Color); //í…ìŠ¤íŠ¸ ìƒ‰ìƒ ì„¤ì •
+	Color(*GetTextColor)(); //í…ìŠ¤íŠ¸ ìƒ‰ìƒ íšë“
+	void(*SetBackgroundColor)(Color); //ë°±ê·¸ë¼ìš´ë“œ ìƒ‰ìƒ ì„¤ì •
+	Color(*GetBackgroundColor)(); //ë°±ê·¸ë¼ìš´ë“œ ìƒ‰ìƒ íšë“
 	void(*ResetColor)();
 
-	void(*Clear)(); //ÄÜ¼Ö Ã»¼Ò
-	void(*Pause)(); //ÄÜ¼Ö ´ë°¡
-	void(*Exit)(); //ÄÜ¼Ö Á¾·á
+	void(*Clear)(); //ì½˜ì†” ì²­ì†Œ
+	void(*Pause)(); //ì½˜ì†” ëŒ€ê¸°
+	void(*Exit)(); //ì½˜ì†” ì¢…ë£Œ
 };
 
